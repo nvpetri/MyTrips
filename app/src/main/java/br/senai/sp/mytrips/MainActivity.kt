@@ -31,16 +31,24 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun LoginTl(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+    
+}
+fun SignUpTl(modifier: Modifier = Modifier){
+
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun GreetingPreview() {
+fun LoginPreview() {
     MyTripsTheme {
         LoginTl("Android")
+    }
+}
+
+@Preview(showSystemUi = true, showBackground = true)
+@Composable
+fun SignUpPreview(){
+    MyTripsTheme {
+        SignUpTl()
     }
 }

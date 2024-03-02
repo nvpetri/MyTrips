@@ -18,6 +18,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
@@ -91,22 +93,23 @@ fun LoginTl(name: String, modifier: Modifier = Modifier) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(400.dp)
+                    .height(500.dp)
             ) {
-                Column (
+                Column(
                     modifier = Modifier
                         .padding(start = 18.dp)
-                ){
+                ) {
                     Text(
                         text = "Login",
                         color = Color.Magenta,
                         fontWeight = FontWeight.ExtraBold,
                         fontSize = 56.sp
                     )
-                    Text(text = "Please sign in to continue",
+                    Text(
+                        text = "Please sign in to continue",
                         color = Color.Gray,
                         fontSize = 14.sp
-                        )
+                    )
                     OutlinedTextField(
                         modifier = Modifier
                             .padding(top = 50.dp)
@@ -118,12 +121,88 @@ fun LoginTl(name: String, modifier: Modifier = Modifier) {
                             unfocusedBorderColor = Color.Magenta
                         ),
                         label = {
-                            Image(painterResource(id = ), contentDescription = )
+                            Image(
+                                painterResource(
+                                    id = R.drawable.email
+                                ),
+                                contentDescription = " ",
+                                modifier = Modifier
+                                    .width(20.dp)
+                            )
                             Text(
-                                text = "Email"
+                                text = "Email",
+                                modifier = Modifier
+                                    .padding(start = 24.dp)
                             )
                         }
                     )
+                    OutlinedTextField(
+                        modifier = Modifier
+                            .padding(top = 10.dp)
+                            .width(330.dp),
+                        value = "",
+                        onValueChange = {},
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = Color.Magenta,
+                            unfocusedBorderColor = Color.Magenta
+                        ),
+                        label = {
+                            Image(
+                                painterResource(
+                                    id = R.drawable.cadeado
+                                ),
+                                contentDescription = " ",
+                                modifier = Modifier
+                                    .width(20.dp)
+                            )
+                            Text(
+                                text = "Senha",
+                                modifier = Modifier
+                                    .padding(start = 24.dp)
+                            )
+                        }
+                    )
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(end = 50.dp),
+                        horizontalAlignment = Alignment.End,
+                    ) {
+                        Button(
+                            onClick = { /*TODO*/ },
+                            colors = ButtonDefaults.buttonColors(Color.Magenta),
+                            modifier = Modifier
+                                .padding(top = 30.dp)
+                                .height(60.dp)
+                                .width(150.dp)
+                        ) {
+                            Text(
+                                text = "SIGN IN",
+                                fontWeight = FontWeight.ExtraBold,
+                                fontSize = 22.sp
+                            )
+                            Image(
+                                painterResource(id = R.drawable.setadireita),
+                                contentDescription = "",
+                                modifier = Modifier
+                                    .padding(start = 6.dp)
+                            )
+                        }
+                        Row (
+                            modifier = Modifier
+                                .padding(top = 30.dp)
+                        ){
+                            Text(
+                                text = "Don't have an account?",
+                                color = Color.Gray
+                            )
+                            Text(
+                                text = "Sign up",
+                                color = Color.Magenta,
+                                fontWeight = FontWeight.Bold
+                                )
+                        }
+                    }
                 }
             }
         }
@@ -149,12 +228,25 @@ fun LoginTl(name: String, modifier: Modifier = Modifier) {
 
 @Composable
 fun SignUpTl(modifier: Modifier = Modifier) {
-    Column(
+    Surface(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.Magenta)
     ) {
-
+        Column(
+            horizontalAlignment = Alignment.End
+        ) {
+            Box(
+                modifier = Modifier
+                    .width(150.dp)
+                    .height(50.dp)
+                    .background(
+                        color = Color.Magenta,
+                        shape = RoundedCornerShape(
+                            bottomStart = 32.dp
+                        )
+                    )
+            )
+        }
     }
 }
 

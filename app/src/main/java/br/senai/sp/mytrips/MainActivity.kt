@@ -416,10 +416,11 @@ fun SignUpTl(modifier: Modifier = Modifier) {
         }
         Column(
             verticalArrangement = Arrangement.Bottom,
-            modifier = Modifier
-                .padding(start = 20.dp)
         ) {
-            Row {
+            Row (
+                modifier = Modifier
+                    .padding(start = 20.dp)
+            ){
                 Checkbox(
                     checked = false,
                     onCheckedChange = {},
@@ -440,15 +441,16 @@ fun SignUpTl(modifier: Modifier = Modifier) {
                 modifier = Modifier
                     .padding(
                         top = 10.dp,
-                        bottom = 46.dp,
+                        bottom = 4.dp,
                         start = 24.dp
                     )
-                    .width(300.dp)
+                    .width(320.dp)
                     .height(80.dp)
             ) {
                 Button(
                     onClick = { /*TODO*/ },
                     modifier = Modifier
+                        .padding(start = 20.dp)
                         .fillMaxWidth(),
                     colors = ButtonDefaults.buttonColors(Color.Magenta)
                 ) {
@@ -464,7 +466,7 @@ fun SignUpTl(modifier: Modifier = Modifier) {
                     fontSize = 12.sp,
                     color = Color.Gray,
                     modifier = Modifier
-                        .padding(top = 10.dp, start = 100.dp)
+                        .padding(top = 10.dp, start = 120.dp)
                 )
                 Text(
                     text = " Login",
@@ -477,6 +479,17 @@ fun SignUpTl(modifier: Modifier = Modifier) {
 
                 }
             }
+            Box(
+                modifier = Modifier
+                    .width(150.dp)
+                    .height(50.dp)
+                    .background(
+                        color = Color.Magenta,
+                        shape = RoundedCornerShape(
+                            topEnd = 32.dp
+                        )
+                    )
+            )
         }
     }
 }

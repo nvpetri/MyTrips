@@ -28,6 +28,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -35,6 +36,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import br.senai.sp.mytrips.ui.theme.MyTripsTheme
+import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +48,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    LoginTl("Android")
+                    LoginTl()
                 }
             }
         }
@@ -54,7 +56,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun LoginTl(name: String, modifier: Modifier = Modifier) {
+fun LoginTl(modifier: Modifier = Modifier) {
 
     Surface(
         modifier = Modifier
@@ -247,6 +249,61 @@ fun SignUpTl(modifier: Modifier = Modifier) {
                     )
             )
         }
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .padding(top = 90.dp)
+        ) {
+            Text(text = "Sign Up",
+                color = Color.Magenta,
+                fontWeight = FontWeight.ExtraBold,
+                fontSize = 46.sp
+                )
+            Text(text = "Create a new account",
+                color = Color.Gray,
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Light
+                )
+            Box(
+                modifier = Modifier
+                    .padding(top = 22.dp)
+                    .width(120.dp)
+                    .height(120.dp)
+                    .background(
+                        color = Color(0x66DDDCDC),
+                        shape = RoundedCornerShape(100.dp)
+                    )
+                    .border(
+                        width = 4.dp,
+                        brush = Brush.horizontalGradient(
+                            colors = listOf(
+                                Color.Magenta.copy(alpha = 1f),
+                                Color.Magenta.copy(alpha = 1f),
+                                Color.Magenta.copy(alpha = 1f),
+                                Color.Magenta.copy(alpha = 0.2f)
+                            ),
+                            startX = 70f,
+                            endX = 120f
+                        ),
+                        shape = RoundedCornerShape(100.dp)
+                    )
+            ){
+                Image(
+                    painterResource(id = R.drawable.usuario),
+                    contentDescription = "",
+                    modifier = Modifier
+                        .padding(top = 15.dp, start = 20.dp)
+                        .width(80.dp)
+                    )
+                Image(painterResource(id = R.drawable.camera ),
+                    contentDescription = "",
+                    modifier = Modifier
+                        .padding(top = 90.dp, start = 90.dp)
+                        .width(20.dp)
+                        .background(Color(0xFFFFFFFF))
+                )
+            }
+        }
     }
 }
 
@@ -254,7 +311,7 @@ fun SignUpTl(modifier: Modifier = Modifier) {
 @Composable
 fun LoginPreview() {
     MyTripsTheme {
-        LoginTl("Android")
+        LoginTl()
     }
 }
 

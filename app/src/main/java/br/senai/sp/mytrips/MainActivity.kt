@@ -19,7 +19,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
@@ -158,7 +161,7 @@ fun LoginTl(modifier: Modifier = Modifier) {
                                     .width(20.dp)
                             )
                             Text(
-                                text = "Senha",
+                                text = "Password",
                                 modifier = Modifier
                                     .padding(start = 24.dp)
                             )
@@ -190,19 +193,19 @@ fun LoginTl(modifier: Modifier = Modifier) {
                                     .padding(start = 6.dp)
                             )
                         }
-                        Row (
+                        Row(
                             modifier = Modifier
                                 .padding(top = 30.dp)
-                        ){
+                        ) {
                             Text(
                                 text = "Don't have an account?",
                                 color = Color.Gray
                             )
                             Text(
-                                text = "Sign up",
+                                text = " Sign up",
                                 color = Color.Magenta,
                                 fontWeight = FontWeight.Bold
-                                )
+                            )
                         }
                     }
                 }
@@ -252,18 +255,20 @@ fun SignUpTl(modifier: Modifier = Modifier) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
-                .padding(top = 90.dp)
+                .padding(top = 60.dp)
         ) {
-            Text(text = "Sign Up",
+            Text(
+                text = "Sign Up",
                 color = Color.Magenta,
                 fontWeight = FontWeight.ExtraBold,
                 fontSize = 46.sp
-                )
-            Text(text = "Create a new account",
+            )
+            Text(
+                text = "Create a new account",
                 color = Color.Gray,
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Light
-                )
+            )
             Box(
                 modifier = Modifier
                     .padding(top = 22.dp)
@@ -287,21 +292,190 @@ fun SignUpTl(modifier: Modifier = Modifier) {
                         ),
                         shape = RoundedCornerShape(100.dp)
                     )
-            ){
+            ) {
                 Image(
                     painterResource(id = R.drawable.usuario),
                     contentDescription = "",
                     modifier = Modifier
                         .padding(top = 15.dp, start = 20.dp)
                         .width(80.dp)
-                    )
-                Image(painterResource(id = R.drawable.camera ),
+                )
+                Image(
+                    painterResource(id = R.drawable.camera),
                     contentDescription = "",
                     modifier = Modifier
                         .padding(top = 90.dp, start = 90.dp)
                         .width(20.dp)
                         .background(Color(0xFFFFFFFF))
                 )
+            }
+            OutlinedTextField(
+                modifier = Modifier
+                    .padding(top = 15.dp)
+                    .width(330.dp),
+                value = "",
+                onValueChange = {},
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = Color.Magenta,
+                    unfocusedBorderColor = Color.Magenta
+                ),
+                label = {
+                    Image(
+                        painterResource(
+                            id = R.drawable.usuario
+                        ),
+                        contentDescription = " ",
+                        modifier = Modifier
+                            .width(20.dp)
+                    )
+                    Text(
+                        text = "Username",
+                        modifier = Modifier
+                            .padding(start = 24.dp)
+                    )
+                }
+            )
+            OutlinedTextField(
+                modifier = Modifier
+                    .padding(top = 10.dp)
+                    .width(330.dp),
+                value = "",
+                onValueChange = {},
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = Color.Magenta,
+                    unfocusedBorderColor = Color.Magenta
+                ),
+                label = {
+                    Image(
+                        painterResource(
+                            id = R.drawable.celular
+                        ),
+                        contentDescription = " ",
+                        modifier = Modifier
+                            .width(20.dp)
+                    )
+                    Text(
+                        text = "Phone",
+                        modifier = Modifier
+                            .padding(start = 24.dp)
+                    )
+                }
+            )
+            OutlinedTextField(
+                modifier = Modifier
+                    .padding(top = 10.dp)
+                    .width(330.dp),
+                value = "",
+                onValueChange = {},
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = Color.Magenta,
+                    unfocusedBorderColor = Color.Magenta
+                ),
+                label = {
+                    Image(
+                        painterResource(
+                            id = R.drawable.emailt
+                        ),
+                        contentDescription = " ",
+                        modifier = Modifier
+                            .width(20.dp)
+                    )
+                    Text(
+                        text = "Email",
+                        modifier = Modifier
+                            .padding(start = 24.dp)
+                    )
+                }
+            )
+            OutlinedTextField(
+                modifier = Modifier
+                    .padding(top = 10.dp)
+                    .width(330.dp),
+                value = "",
+                onValueChange = {},
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = Color.Magenta,
+                    unfocusedBorderColor = Color.Magenta
+                ),
+                label = {
+                    Image(
+                        painterResource(
+                            id = R.drawable.cadeadot
+                        ),
+                        contentDescription = " ",
+                        modifier = Modifier
+                            .width(20.dp)
+                    )
+                    Text(
+                        text = "Senha",
+                        modifier = Modifier
+                            .padding(start = 24.dp)
+                    )
+                }
+            )
+        }
+        Column(
+            verticalArrangement = Arrangement.Bottom,
+            modifier = Modifier
+                .padding(start = 20.dp)
+        ) {
+            Row {
+                Checkbox(
+                    checked = false,
+                    onCheckedChange = {},
+                    colors = CheckboxDefaults.colors(
+                        checkedColor = Color.Magenta,
+                        uncheckedColor = Color.Magenta
+                    )
+                )
+                Text(
+                    text = "Over 18?",
+                    modifier = Modifier
+                        .padding(
+                            top = 12.dp,
+                        )
+                )
+            }
+            Column(
+                modifier = Modifier
+                    .padding(
+                        top = 10.dp,
+                        bottom = 46.dp,
+                        start = 24.dp
+                    )
+                    .width(300.dp)
+                    .height(80.dp)
+            ) {
+                Button(
+                    onClick = { /*TODO*/ },
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    colors = ButtonDefaults.buttonColors(Color.Magenta)
+                ) {
+                    Text(
+                        text = "CREATE ACCOUNT",
+                        fontWeight = FontWeight.ExtraBold,
+                        fontSize = 20.sp
+                    )
+                }
+                Row {
+                Text(
+                    text = "Already have an account?",
+                    fontSize = 12.sp,
+                    color = Color.Gray,
+                    modifier = Modifier
+                        .padding(top = 10.dp, start = 100.dp)
+                )
+                Text(
+                    text = " Login",
+                    fontSize = 12.sp,
+                    color = Color.Magenta,
+                    fontWeight = FontWeight.Black,
+                    modifier = Modifier
+                        .padding(top = 10.dp)
+                )
+
+                }
             }
         }
     }

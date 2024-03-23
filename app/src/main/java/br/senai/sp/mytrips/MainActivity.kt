@@ -19,11 +19,15 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.MaterialTheme
@@ -37,9 +41,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -504,12 +510,11 @@ fun Home(modifier: Modifier = Modifier) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = Color.Magenta)
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(200.dp)
+                .height(218.dp)
         ) {
             Image(
                 painterResource(
@@ -520,14 +525,16 @@ fun Home(modifier: Modifier = Modifier) {
                 modifier = Modifier.fillMaxSize()
             )
         }
-        Box(
+        Row(
             modifier = Modifier
-                .offset(y = (-180).dp, x = 300.dp)
+                .offset(y = (-195).dp, x = 300.dp)
                 .size(80.dp)
         ) {
-            Column (modifier = Modifier
-                .height(100.dp).background(Color.Magenta)){
-                Box(
+            Column(
+                modifier = Modifier
+                    .height(100.dp)
+            ) {
+                Row(
                     modifier = Modifier
                         .size(80.dp)
                         .clip(CircleShape)
@@ -541,27 +548,92 @@ fun Home(modifier: Modifier = Modifier) {
                             .clip(CircleShape)
                     )
                 }
-                Text(text = "Celso Furtado")
+            }
+        }
+        Text(
+            text = "Celso Furtado",
+            color = Color.White,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier
+                .offset(y = (-190).dp, x = 270.dp)
+        )
+        Image(
+            Icons.Default.LocationOn,
+            colorFilter = ColorFilter.tint(color = Color.White),
+            contentDescription = "",
+            modifier = Modifier
+                .offset(y = (-168).dp, x = 10.dp)
+        )
+        Text(
+            text = "You're in Paris",
+            color = Color.White,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier
+                .offset(y = (-188).dp, x = 30.dp)
+        )
+        Text(
+            text = "My Trips",
+            fontWeight = FontWeight.ExtraBold,
+            color = Color.White,
+            fontSize = 30.sp,
+            modifier = Modifier
+                .offset(y = (-192).dp, x = 12.dp)
+        )
+    }
+    Column (
+        modifier = Modifier
+            .padding(top = 228.dp, start = 10.dp)
+    ){
+        Text(
+            text = "Categories",
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Medium
+        )
+        LazyRow(modifier = Modifier.fillMaxWidth() ){
+            items(4){
+                Card(
+                    modifier = Modifier
+                        .height(90.dp)
+                        .width(140.dp)
+                        .background(Color.Black)
+                        .padding(end = 10.dp)
+                ) {
+                    Column(modifier = Modifier.fillMaxSize()) {
+                        Image(
+                            painter = painterResource(id = R.drawable.),
+                            contentDescription = "",
+                            modifier = Modifier
+                                .height(100.dp)
+                                .fillMaxWidth(),
+                            contentScale = ContentScale.Crop
+                        )
+                        Text(
+                            text = "Texto do Cartão $it",
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.padding(8.dp)
+                        )
+                    }
+                }
             }
         }
     }
 }
 
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-fun LoginPreview() {
-    MyTripsTheme {
-        LoginTl()
-    }
-}
+//@Preview(showBackground = true, showSystemUi = true)
+//@Composable
+//fun LoginPreview() {
+//  MyTripsTheme {
+//    LoginTl()
+//}
+//}
 
-@Preview(showSystemUi = true, showBackground = true)
-@Composable
-fun SignUpPreview() {
-    MyTripsTheme {
-        SignUpTl()
-    }
-}
+//@Preview(showSystemUi = true, showBackground = true)
+//@Composable
+//fun SignUpPreview() {
+//    MyTripsTheme {
+//        SignUpTl()
+//    }
+//}
 
 @Preview(showSystemUi = true, showBackground = true)
 @Composable

@@ -123,7 +123,7 @@ fun TelaHome(controleDeNavegacao: NavHostController) {
                                 .padding(end = 10.dp),
                         ) {
                             Text(
-                                text = "Gustavo Henrique",
+                                text = "Nicolas Vasconcelos",
                                 color = Color.White
                             )
                         }

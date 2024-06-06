@@ -1,4 +1,4 @@
-package br.senai.sp.mytrips
+package br.senai.sp.jandira
 
 import org.junit.Test
 

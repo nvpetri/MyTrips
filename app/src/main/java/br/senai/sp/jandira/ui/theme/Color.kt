@@ -1,4 +1,4 @@
-package br.senai.sp.mytrips.ui.theme
+package br.senai.sp.jandira.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

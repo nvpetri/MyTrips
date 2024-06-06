@@ -1,4 +1,4 @@
-package br.senai.sp.mytrips
+package br.senai.sp.jandira
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -6,16 +6,14 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import br.senai.sp.mytrips.screens.Home
-import br.senai.sp.mytrips.screens.LoginTl
-import br.senai.sp.mytrips.screens.SignUpTl
-import br.senai.sp.mytrips.ui.theme.MyTripsTheme
+import br.senai.sp.jandira.screens.TelaCadastro
+import br.senai.sp.jandira.screens.TelaHome
+import br.senai.sp.jandira.screens.TelaLogin
+import br.senai.sp.jandira.ui.theme.MyTripsTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,18 +30,12 @@ class MainActivity : ComponentActivity() {
                         navController = controleDeNavegacao,
                         startDestination = "login"
                     ){
-                        composable(route = "home"){ Home(controleDeNavegacao)}
-                        composable(route = "cadastro"){ SignUpTl(controleDeNavegacao)}
-                        composable(route = "login"){ LoginTl(controleDeNavegacao)}
+                        composable(route = "login"){ TelaLogin(controleDeNavegacao) }
+                        composable(route = "cadastro"){ TelaCadastro(controleDeNavegacao) }
+                        composable(route = "home"){ TelaHome(controleDeNavegacao) }
                     }
                 }
             }
         }
     }
-}
-
-@Preview(showSystemUi = true)
-@Composable
-fun Preview() {
-
 }
